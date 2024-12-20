@@ -19,9 +19,12 @@ public class Main {
        
         String repositoryType = AppConfig.REPOSITORY_TYPE;
 
-         IRepository<Niveau> niveauRepo = (IRepository<Niveau>) RepositoryFactory.createRepository(repositoryType, Niveau.class);
-         IRepository<Classe> classeRepo = (IRepository<Classe>) RepositoryFactory.createRepository(repositoryType, Classe.class);
-         IRepository<Cours> coursRepo = (IRepository<Cours>) RepositoryFactory.createRepository(repositoryType, Cours.class);
+         @SuppressWarnings("unchecked")
+        IRepository<Niveau> niveauRepo = (IRepository<Niveau>) RepositoryFactory.createRepository(repositoryType, Niveau.class);
+         @SuppressWarnings("unchecked")
+        IRepository<Classe> classeRepo = (IRepository<Classe>) RepositoryFactory.createRepository(repositoryType, Classe.class);
+         @SuppressWarnings("unchecked")
+        IRepository<Cours> coursRepo = (IRepository<Cours>) RepositoryFactory.createRepository(repositoryType, Cours.class);
  
          NiveauService niveauService = new NiveauService(niveauRepo);
          ClasseService classeService = new ClasseService(classeRepo);
