@@ -16,24 +16,20 @@ import ism.com.services.NiveauService;
 public class Main {
 
     public static void main(String[] args) {
-        // Choisir le type de repository (bd ou list)
+       
         String repositoryType = AppConfig.REPOSITORY_TYPE;
 
-         // Création des repositories via la factory
          IRepository<Niveau> niveauRepo = (IRepository<Niveau>) RepositoryFactory.createRepository(repositoryType, Niveau.class);
          IRepository<Classe> classeRepo = (IRepository<Classe>) RepositoryFactory.createRepository(repositoryType, Classe.class);
          IRepository<Cours> coursRepo = (IRepository<Cours>) RepositoryFactory.createRepository(repositoryType, Cours.class);
  
-         // Création des services
          NiveauService niveauService = new NiveauService(niveauRepo);
          ClasseService classeService = new ClasseService(classeRepo);
          CoursService coursService = new CoursService(coursRepo);
 
-        // Initialisation du scanner pour les entrées utilisateur
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
-        // Menu principal
         while (running) {
             System.out.println("\n=== Menu Principal ===");
             System.out.println("1. Gérer les niveaux");
